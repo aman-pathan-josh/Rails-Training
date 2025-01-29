@@ -18,8 +18,8 @@ UserRole.create(user: user1, role: admin_role)
 UserRole.create(user: user2, role: customer_role)
 UserRole.create(user: user3, role: customer_role)
 
-restaurant1 = Restaurant.create(user_id: user1.id, restaurant_name: 'King Restaurant', address: 'Baner,Pune', contact: '1231231231')
-restaurant2 = Restaurant.create(user_id: user1.id, restaurant_name: 'Queen Restaurant', address: 'Akurdi,Pune', contact: '2323232323')
+restaurant1 = Restaurant.create(restaurant_name: 'King Restaurant', address: 'Baner,Pune', contact: '1231231231')
+restaurant2 = Restaurant.create(restaurant_name: 'Queen Restaurant', address: 'Akurdi,Pune', contact: '2323232323')
 
 UserRestaurant.create(user: user1, restaurant: restaurant1)
 UserRestaurant.create(user: user1, restaurant: restaurant2)
