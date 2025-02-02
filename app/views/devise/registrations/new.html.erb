@@ -1,0 +1,124 @@
+<section class="background-radial-gradient overflow-hidden">
+  <style>
+    .background-radial-gradient {
+      background-color: hsl(218, 41%, 15%);
+      background-image: radial-gradient(650px circle at 0% 0%,
+          hsl(218, 41%, 35%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 41%, 19%) 80%,
+          transparent 100%),
+        radial-gradient(1250px circle at 100% 100%,
+          hsl(218, 41%, 45%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 41%, 19%) 80%,
+          transparent 100%);
+    }
+    body{
+      overflow: hidden;
+    }
+    #radius-shape-1 {
+      height: 220px;
+      width: 220px;
+      top: -60px;
+      left: -130px;
+      background: radial-gradient(#44006b, #ad1fff);
+      overflow: hidden;
+    }
+
+    #radius-shape-2 {
+      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+      bottom: -60px;
+      right: -110px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(#44006b, #ad1fff);
+      overflow: hidden;
+    }
+
+    .bg-glass {
+      background-color: hsla(0, 0%, 100%, 0.9) !important;
+      backdrop-filter: saturate(200%) blur(25px);
+    }
+  </style>
+
+  <div class="container justify-content-center align-items-center px-4 px-md-5 h-100 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+          <span style="color: hsl(218, 81%, 75%)">Join Us & <br> Order Hassle-Free!</span><br>
+          Create an account to enjoy fast and easy ordering. 
+        </h1>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+        <div class="card bg-glass">
+          <div class="card-body px-4 py-5 px-md-5">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row">
+                <div class="col-md-6 mb-2">
+                  <div data-mdb-input-init class="form-outline">
+                    <%# <label class="form-label" for="form3Example1">First name</label> %>
+                    <%= f.label :first_name, "First name", class: "form-label" %>
+                    <%= f.text_field :first_name, class: "form-control", required: true %>
+                    <%# <input type="text" id="form3Example1" class="form-control" required/> %>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                  <div data-mdb-input-init class="form-outline">
+                    <%= f.label :last_name, "Last name", class: "form-label" %>
+                    <%= f.text_field :last_name, class: "form-control", required: true %>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phone Number input -->
+              <div data-mdb-input-init class="form-outline mb-2">
+                <%= f.label :phone_number, "Phone Number", class: "form-label" %>
+                <%= f.telephone_field :phone_number, class: "form-control", required: true %>
+              </div>
+
+              <!-- Email input -->
+              <div data-mdb-input-init class="form-outline mb-2">
+                <%= f.label :email, "Email address", class: "form-label" %>
+                <%= f.email_field :email, class: "form-control", required: true %>
+              </div>
+
+              <!-- Password input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <%= f.label :password, "Password", class: "form-label" %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, class: "form-control", required: true %>
+              </div>
+
+              <%# Confirm Password input %>
+              <div data-mdb-input-init class="form-outline mb-4">
+                <%= f.label :password_confirmation, "Confirm Password", class: "form-label" %><br />
+                <%= f.password_field :password_confirmation, class: "form-control", required: true %>
+              </div>
+
+              <!-- Submit button -->
+              <div class="d-flex justify-content-center">
+                <%= f.submit "Sign up", class: "btn btn-primary btn-block mb-2" %>
+              </div>
+
+            <div class="d-flex justify-content-center align-items-center flex-column">
+              <%= render "devise/shared/links" %>
+            </div>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

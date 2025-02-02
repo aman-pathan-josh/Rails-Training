@@ -59,3 +59,5 @@ end
 gem "devise"
 gem "faker"
 gem "dotenv-rails"
+
+gem "jsbundling-rails", "~> 1.3"
