@@ -13,9 +13,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @customer_role = Role.create(role: "customer")
+    @admin_role = Role.create(role: "admin")
     if @user.save
-      @user_role = UserRole.create(user: @user, role: @customer_role)
+      @user_role = UserRole.create(user: @user, role: @admin_role)
       redirect_to users_path
     else
       render :new
