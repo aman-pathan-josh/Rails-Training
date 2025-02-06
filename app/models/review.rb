@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :menu_item
+  belongs_to :user
 
-  validates :rating, presence: true
-  validates :comment, presence: true
+  validates :rating, :comment, presence: true
 end
