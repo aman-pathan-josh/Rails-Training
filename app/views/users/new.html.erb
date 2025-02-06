@@ -1,3 +1,18 @@
+<style>
+    .msg{
+        display:flex;
+        flex-direction:column;
+    }
+</style>
+<div class="msg">
+    <% if !!flash[:errors] %>
+        <% flash[:errors].each do |e| %>
+            <ul>
+                <li><%= e %></li>
+            </ul>
+        <% end %>
+    <% end %>
+</div>
 <div style="display:flex;justify-content:center;flex-direction:column;align-items:center">
     <h1>Add New User</h1>
 

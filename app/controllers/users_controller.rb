@@ -18,7 +18,8 @@ class UsersController < ApplicationController
       @user_role = UserRole.create(user: @user, role: @customer_role)
       redirect_to users_path
     else
-      render :new
+      flash[:errors] = @user.errors.full_messages
+      redirect_to new_user_path
     end
   end
 
@@ -28,8 +29,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path
+    if @user.update(user_params)
+      redirect_to user_path
+    else
+      flash[:errors] = @user.errors.full_messages
+      redirect_to edit_user_path
+    end
   end
 
   def destroy
