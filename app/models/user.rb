@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :user_roles
-  has_many :roles, through: :user_roles
+  has_many :roles, through: :user_roles, dependent: :destroy
   has_many :user_restaurants
-  has_many :restaurants, through: :user_restaurants
+  has_many :restaurants, through: :user_restaurants, dependent: :destroy
   has_many :reviews
 
   validates :first_name, :last_name, presence: true
